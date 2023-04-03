@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .center {
+            width: 400x;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 40px;
+            color: aquamarine;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="center">
+        <h1 id="dis_hours" style="display: inline;"></h1>
+        <h1 id="dis_dots1" style="display: inline;"></h1>
+        <h1 id="dis_mins" style="display: inline;"></h1>
+        <h1 id="dis_dots2" style="display: inline;"></h1>
+        <h1 id="dis_seconds" style="display: inline;"></h1>
+        <h1 id="dis_AM_or_PM" style="display: inline;"></h1>
+    </div>
+
+
+    <script>
+        function add_zero(num) 
+        {
+            return(num < 10 ? num = "0" + num : num)
+        }
+
+        function ourtime() 
+        {
+            let colors = ["red","blue","green","black"]
+            let sizes = ["100%","200%","300%","400%","500%"]
+            let random_color = Math.floor(Math.random() * 4);
+            let random_size = Math.floor(Math.random() * 5);
+            console.log(random_color);
+            let clock = new Date()
+            let hours = add_zero(clock.getHours())
+            let mins = add_zero(clock.getMinutes())
+            let secs = add_zero(clock.getSeconds())
+            let dots = ":"
+            let AM_or_PM = ""
+
+
+            hours < 12 && hours > 0 ? AM_or_PM = "AM" : AM_or_PM = "PM"
+
+            document.getElementById("dis_hours").innerHTML = hours
+            document.getElementById("dis_dots1").innerHTML = dots
+            document.getElementById("dis_mins").innerHTML = mins
+            document.getElementById("dis_dots2").innerHTML = dots
+            document.getElementById("dis_seconds").innerHTML = secs
+            document.getElementById("dis_AM_or_PM").innerHTML = AM_or_PM
+            document.getElementById("dis_seconds").style.color = colors[random_color]
+            document.getElementById("dis_seconds").style.fontSize = sizes[random_size]
+
+        }
+        setInterval(ourtime, 1000)
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
